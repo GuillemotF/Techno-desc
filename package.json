@@ -1,0 +1,17 @@
+{
+  "name": "tech-desc",
+  "version": "0.0.1",
+  "description": "Présentations brèves des technologies récentes",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "front": "npm run serve --prefix ./front",
+    "back": "npm run dev --prefix ./back",
+    "build:front": "npm build --prefix ./front",
+    "build:back": "npm build --prefix ./back",
+    "test:front": "npm run test:unit --prefix ./front",
+    "lint": "npm run lint --prefix ./front"
+  },
+  "author": "François Guillemot",
+  "license": "ISC"
+}
