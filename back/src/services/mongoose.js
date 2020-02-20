@@ -22,7 +22,8 @@ exports.connect = () => {
   mongoose.connect(mongoURI, {
     keepAlive: 1,
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
   });
 
   mongoose.set("useCreateIndex", true);

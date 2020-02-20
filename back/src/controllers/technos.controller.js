@@ -43,7 +43,8 @@ exports.create = async (req, res, next) => {
 
 exports.update = async (req, res, next) => {
   try {
-    const { type, title, id, desc, tags } = req.body;
+    const { type, title, id, desc } = req.body;
+    let { tags } = req.body;
     const prevTechno = await TechnoModel.findById(id);
     if (!prevTechno) {
       throw new APIError("Techno not found", 404);
@@ -57,6 +58,8 @@ exports.update = async (req, res, next) => {
     }
     if (tags && tags.length > 0) {
       await TagModel.checkIfTagsExist(tags);
+    } else {
+      tags = [];
     }
     const updatedTechno = await TechnoModel.updateById(id, {
       type,
@@ -65,7 +68,7 @@ exports.update = async (req, res, next) => {
       imgUrl,
       tags
     });
-    res.status(200).json(updatedTechno.transform());
+    res.status(200).json(updatedTechno);
   } catch (error) {
     next(error);
   }
