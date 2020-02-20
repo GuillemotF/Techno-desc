@@ -13,8 +13,10 @@ import {
   PATCH_TECHNO,
   GET_TAGS,
   SET_TAGS,
+  SET_TECHNOS,
+  GET_TECHNOS,
 } from './actions';
-import { login, logout, postTechno, postTag, patchTechno, getTags } from '../services';
+import { login, logout, postTechno, postTag, patchTechno, getTags, getTechnos } from '../services';
 
 Vue.use(Vuex);
 export default new Vuex.Store({
@@ -23,6 +25,7 @@ export default new Vuex.Store({
     tags: {} as App.Tags,
     userToken: localStorage.getItem('user-token'),
     status: '',
+    technos: [] as App.Techno[],
   },
   getters: {
     isAdmin: (state) => !!state.userToken,
@@ -31,6 +34,7 @@ export default new Vuex.Store({
     getTags: (state) => state.tags,
     getActiveTags: (state) => state.activeTags,
     getUserToken: (state) => state.userToken,
+    getTechnos: (state) => state.technos,
   },
   mutations: {
     [SET_TAGS]: (state, tags: App.Tag[]) => {
@@ -39,6 +43,9 @@ export default new Vuex.Store({
         tagsObj[tag.name] = tag;
       });
       state.tags = tagsObj;
+    },
+    [SET_TECHNOS]: (state, technos: App.Techno[]) => {
+      state.technos = technos;
     },
     [ADD_TAG]: (state, tag: string) => {
       state.activeTags.push(tag);
@@ -108,6 +115,11 @@ export default new Vuex.Store({
     },
     [PATCH_TECHNO]: ({ dispatch }, { title, id, desc, type, img, tags }) => {
       return patchTechno(dispatch, { title, id, desc, type, img, tags });
+    },
+    [GET_TECHNOS]: ({ commit }, { type, tags }) => {
+      return getTechnos({ type, tags }).then((res) => {
+        commit(SET_TECHNOS, res);
+      });
     },
   },
   modules: {},

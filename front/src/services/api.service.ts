@@ -31,8 +31,13 @@ export async function getUser() {
   return response.data;
 }
 
-export async function getTechnos(type: string) {
-  const response = await fetchApi({ url: `/technos?type=${type}` });
+export async function getTechnos({ type, tags }: { type: string; tags: string[] }) {
+  const params = { type, tags: JSON.stringify(tags) };
+  const esc = encodeURIComponent;
+  const query = (Object.keys(params) as Array<keyof typeof params>)
+    .map((k) => `${esc(k)}=${esc(params[k])}`)
+    .join('&');
+  const response = await fetchApi({ url: `/technos?${query}` });
   return response.data;
 }
 

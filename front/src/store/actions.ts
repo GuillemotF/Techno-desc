@@ -10,3 +10,5 @@ export const POST_TAG = 'POST_TAG';
 export const PATCH_TECHNO = 'PATCH_TECHNO';
 export const GET_TAGS = 'GET_TAGS';
 export const SET_TAGS = 'SET_TAGS';
+export const GET_TECHNOS = 'GET_TECHNOS';
+export const SET_TECHNOS = 'SET_TECHNOS';
