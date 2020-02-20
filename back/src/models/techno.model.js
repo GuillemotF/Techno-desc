@@ -38,7 +38,11 @@ TechnoSchema.static({
     return technos.map(techno => transform(techno));
   },
   async updateById(id, techno) {
-    return this.findByIdAndUpdate(id, techno, { new: true });
+    const result = await this.findByIdAndUpdate(id, techno, {
+      new: true,
+      lean: true
+    });
+    return result;
   },
   checkDuplicateIdError(err) {
     if (err.code === 11000) {
