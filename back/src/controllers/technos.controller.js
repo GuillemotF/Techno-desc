@@ -5,12 +5,15 @@ const APIError = require("../utils/errors");
 
 exports.find = async (req, res, next) => {
   try {
-    const { type } = req.query;
-    if (!type) {
-      const allTechnos = await TechnoModel.find();
-      return res.json(allTechnos);
+    const { type, tags } = req.query;
+    const filters = {};
+    if (tags && JSON.parse(tags).length > 0) {
+      filters.tags = { $in: JSON.parse(tags) };
     }
-    const technos = await TechnoModel.findByType(type);
+    if (type) {
+      filters.type = type;
+    }
+    const technos = await TechnoModel.findWithFilters(filters);
     return res.json(technos);
   } catch (error) {
     return next(error);

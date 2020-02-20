@@ -14,6 +14,7 @@ import {
   faEdit,
   faUndo,
   faCheck,
+  faSadTear,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { BootstrapVue } from 'bootstrap-vue';
@@ -39,6 +40,7 @@ library.add(
   faEdit,
   faUndo,
   faCheck,
+  faSadTear,
 );
 Vue.use(BootstrapVue);
 Vue.component('font-awesome-icon', FontAwesomeIcon);

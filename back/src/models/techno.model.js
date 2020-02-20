@@ -33,8 +33,8 @@ TechnoSchema.method({
  */
 
 TechnoSchema.static({
-  async findByType(type) {
-    const technos = await this.find({ type });
+  async findWithFilters(filters) {
+    const technos = await this.find(filters);
     return technos.map(techno => transform(techno));
   },
   async updateById(id, techno) {
