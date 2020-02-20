@@ -20,7 +20,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
-import { ADD_TAG, REMOVE_TAG, CLEAN_TAGS } from '../store/actions';
+import { ADD_TAG, REMOVE_TAG, CLEAN_TAGS } from '@/store/actions';
 
 export default Vue.component('TheFilterSidebar', {
   computed: {

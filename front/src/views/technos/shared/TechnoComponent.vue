@@ -73,11 +73,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import ButtonComponent from './styled/ButtonComponent.vue';
-import TextareaComponent from './styled/TextareaComponent.vue';
-import SelectComponent from './styled/SelectComponent.vue';
-import FileInputComponent from './styled/FileInputComponent.vue';
-import { PATCH_TECHNO } from '../store/actions';
+import ButtonComponent from '@/shared/button/ButtonComponent.vue';
+import TextareaComponent from '@/shared/text-area/TextareaComponent.vue';
+import SelectComponent from '@/shared/select/SelectComponent.vue';
+import FileInputComponent from '@/shared/file-input/FileInputComponent.vue';
+import { PATCH_TECHNO } from '@/store/actions';
 
 export default Vue.component('TechnoComponent', {
   props: {

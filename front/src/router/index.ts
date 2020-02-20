@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import VueRouter, { NavigationGuard } from 'vue-router';
-import HomePage from '../views/HomePage.vue';
-import ItemListPage from '../views/TechnoListPage.vue';
-import LoginPage from '../views/LoginPage.vue';
-import CreateTechnoPage from '../views/CreateTechnoPage.vue';
-import CreatePage from '../views/CreatePage.vue';
-import CreateTagPage from '../views/CreateTagPage.vue';
-import store from '../store';
+import HomePage from '@/views/home/HomePage.vue';
+import ItemListPage from '@/views/technos/TechnoListPage.vue';
+import LoginPage from '@/views/login/LoginPage.vue';
+import CreatePage from '@/views/create/CreatePage.vue';
+import CreateTechnoPage from '@/views/create/create-techno/CreateTechnoPage.vue';
+import CreateTagPage from '@/views/create/create-tag/CreateTagPage.vue';
+import store from '@/store';
 
 const redirectIfAuth: NavigationGuard = (to, from, next) => {
   if (!store.getters.isAuthenticated) {

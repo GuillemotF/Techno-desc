@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import CreatePage from '@/views/CreatePage.vue';
+import CreatePage from './CreatePage.vue';
 
 describe('CreatePage.vue', () => {
   const wrapper = shallowMount(CreatePage);

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import HomePage from '@/views/CreateTechnoPage.vue';
+import HomePage from './HomePage.vue';
 
 describe('HomePage.vue', () => {
   const wrapper = shallowMount(HomePage);

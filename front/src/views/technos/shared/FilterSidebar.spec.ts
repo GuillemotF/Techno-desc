@@ -1,6 +1,6 @@
 import Vuex, { Store } from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import FilterSidebar from '@/components/TheFilterSidebar.vue';
+import FilterSidebar from './TheFilterSidebar.vue';
 import { CLEAN_TAGS, ADD_TAG, REMOVE_TAG } from '@/store/actions';
 
 const mockedTags = {
