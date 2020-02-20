@@ -1,7 +1,7 @@
 <template>
   <router-link
     class="button-link"
-    :style="{'background-image': 'url(' + require('../../assets/static/' + imgFilename) + ')'}"
+    :style="{'background-image': 'url(' + require('@/assets/static/' + imgFilename) + ')'}"
     :to="to"
   >
     <div class="button-link-content">

@@ -52,10 +52,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import ButtonComponent from '../components/styled/ButtonComponent.vue';
-import TextareaComponent from '../components/styled/TextareaComponent.vue';
-import SelectComponent from '../components/styled/SelectComponent.vue';
-import { POST_TECHNO } from '../store/actions';
+import ButtonComponent from '@/shared/button/ButtonComponent.vue';
+import TextareaComponent from '@/shared/text-area/TextareaComponent.vue';
+import SelectComponent from '@/shared/select/SelectComponent.vue';
+import { POST_TECHNO } from '@/store/actions';
 
 const defaultData = {
   file: null as File | null,

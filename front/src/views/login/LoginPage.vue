@@ -18,8 +18,8 @@
 
 <script>
 import Vue from 'vue';
-import { login } from '../services';
-import { AUTH_REQUEST } from '../store/actions';
+import { login } from '@/services';
+import { AUTH_REQUEST } from '@/store/actions';
 
 export default Vue.component('LoginPage', {
   data() {

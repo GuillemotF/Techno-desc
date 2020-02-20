@@ -69,7 +69,7 @@
   </div>
 </template>
 <script>
-import { AUTH_LOGOUT, GET_TAGS } from './store/actions';
+import { AUTH_LOGOUT, GET_TAGS } from '@/store/actions';
 
 export default {
   name: 'app',

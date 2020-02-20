@@ -24,9 +24,9 @@
 
 <script>
 import Vue from 'vue';
-import TechnoComponent from '@/components/TechnoComponent.vue';
-import TheFilterSidebar from '@/components/TheFilterSidebar.vue';
-import { getTechnos } from '@/services/api.service';
+import TechnoComponent from './shared/TechnoComponent.vue';
+import TheFilterSidebar from './shared/TheFilterSidebar.vue';
+import { getTechnos } from '@/services';
 
 export default Vue.component('TechnoListPage', {
   components: {

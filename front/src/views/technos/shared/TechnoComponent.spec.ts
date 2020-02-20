@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import TechnoComponent from '@/components/TechnoComponent.vue';
+import TechnoComponent from './TechnoComponent.vue';
 
 describe('TechnoComponent.vue', () => {
   const technoProp = {

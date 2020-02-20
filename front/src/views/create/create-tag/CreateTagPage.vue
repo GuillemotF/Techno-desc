@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { POST_TAG } from '../store/actions';
+import { POST_TAG } from '@/store/actions';
 
 export default Vue.component('CreateTagPage', {
   data() {
