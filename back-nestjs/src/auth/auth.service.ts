@@ -1,0 +1,36 @@
+import { compare } from 'bcrypt';
+import { Injectable, HttpException } from '@nestjs/common';
+import { UsersService } from '../users/users.service';
+import { JwtService } from '@nestjs/jwt';
+
+@Injectable()
+export class AuthService {
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly jwtService: JwtService,
+  ) {}
+
+  async validateUser(
+    username: string,
+    pass: string,
+  ): Promise<{ username: string }> {
+    const user = await this.usersService.findOne(username);
+    console.log(user);
+    if (user) {
+      const isSame = await compare(pass, user.password);
+      if (isSame) {
+        return { username: user._id };
+      }
+      throw new HttpException('Wrong password', 403);
+    }
+    throw new HttpException('Wrong username', 403);
+  }
+
+  async login(user: any) {
+    const payload = { username: user.username, sub: user.userId };
+    return {
+      token: this.jwtService.sign(payload, { expiresIn: '60s' }),
+      refreshToken: this.jwtService.sign(payload, { expiresIn: '24h' }),
+    };
+  }
+}
