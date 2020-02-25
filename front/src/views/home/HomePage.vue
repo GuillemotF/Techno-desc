@@ -16,7 +16,7 @@
         to="/item-list?type=framework"
         class="col-md-10 offset-md-1"
         icon="atom"
-        text="En savoir plus sur les différents Frameworks"
+        text="En savoir plus sur les différents frameworks"
       />
 
       <hr />
@@ -26,7 +26,7 @@
         to="/item-list?type=software"
         class="col-md-10 offset-md-1"
         icon="laptop-code"
-        text="En savoir plus sur les différents Logiciels"
+        text="En savoir plus sur les différents logiciels"
       />
       <hr />
       <ButtonLinkComponent
