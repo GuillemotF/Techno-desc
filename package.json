@@ -6,9 +6,9 @@
   "private": true,
   "scripts": {
     "front": "npm run serve --prefix ./front",
-    "back": "npm run dev --prefix ./back",
+    "back": "npm run start:dev --prefix ./back-nestjs",
     "build:front": "npm build --prefix ./front",
-    "build:back": "npm build --prefix ./back",
+    "build:back": "npm build --prefix ./back-nestjs",
     "test:front": "npm run test:unit --prefix ./front",
     "lint": "npm run lint --prefix ./front"
   },
