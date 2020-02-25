@@ -31,8 +31,8 @@
 <script>
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
-import TechnoComponent from './shared/TechnoComponent.vue';
-import TheFilterSidebar from './shared/TheFilterSidebar.vue';
+import TechnoComponent from './components/TechnoComponent.vue';
+import TheFilterSidebar from './components/TheFilterSidebar.vue';
 import { getTechnos } from '@/services';
 import { GET_TECHNOS } from '@/store/actions';
 

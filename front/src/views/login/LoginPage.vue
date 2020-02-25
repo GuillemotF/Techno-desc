@@ -2,16 +2,26 @@
   <div>
     <form class="login" @submit.prevent="login">
       <h1>Connexion</h1>
-      <label>Email</label>
-      <input class="text-input" required v-model="email" type="text" />
-      <label>Password</label>
-      <input class="text-input" required v-model="password" type="password" />
+      <label>
+        Email
+        <input class="text-input" required v-model="email" type="text" data-test="email-input" />
+      </label>
+      <label>
+        Password
+        <input
+          class="text-input"
+          required
+          v-model="password"
+          type="password"
+          data-test="password-input"
+        />
+      </label>
       <hr />
       <span class="error" :v-if="error.length === 0">{{ error }}</span>
       <button v-if="loading" class="submit" disabled type="submit">
         <font-awesome-icon icon="spinner" spin />
       </button>
-      <button v-else class="submit" type="submit">Login</button>
+      <button v-else class="submit" type="submit" data-test="submit-button">Login</button>
     </form>
   </div>
 </template>

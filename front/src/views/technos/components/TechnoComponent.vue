@@ -1,6 +1,12 @@
 <template>
   <transition name="edit-fade" mode="out-in">
-    <form key="1" v-if="editMode" class="row techno-item-container" @submit.prevent="submit">
+    <form
+      data-test="techno-edit-form"
+      :key="technoData.id + '1'"
+      v-if="editMode"
+      class="row techno-item-container"
+      @submit.prevent="submit"
+    >
       <div class="col-md-2">
         <FileInputComponent :onChange="handleFileChange" />
         <span>{{ imgFileStatus }}</span>
@@ -10,7 +16,13 @@
         <div>
           <div class="d-flex align-items-center justify-content-center">
             <input class="text-input" required v-model="title" type="text" />
-            <ButtonComponent v-if="isAdmin" :onClick="toggleEditMode" class="ml-2" type="button">
+            <ButtonComponent
+              v-if="isAdmin"
+              :onClick="toggleEditMode"
+              class="ml-2"
+              type="button"
+              data-test="techno-edit-toggle-button"
+            >
               <font-awesome-icon icon="undo" />
             </ButtonComponent>
             <ButtonComponent
@@ -41,20 +53,26 @@
         <span :class="error ? 'error' : 'success'">{{ response }}</span>
       </div>
     </form>
-    <article key="2" v-else class="row techno-item-container" :class="success && 'after-success'">
+    <article
+      :key="technoData.id + '2'"
+      v-else
+      class="row techno-item-container"
+      :class="success && 'after-success'"
+    >
       <div class="col-md-2">
         <img :src="technoData.imgUrl" />
       </div>
       <div class="prez-desc col-md-10">
         <div>
           <div class="d-flex align-items-center justify-content-center">
-            <h3>{{ technoData.title }}</h3>
+            <h3 data-test="techno-title">{{ technoData.title }}</h3>
             <ButtonComponent v-if="isAdmin" :onClick="toggleEditMode" class="ml-2">
               <font-awesome-icon icon="edit" />
             </ButtonComponent>
           </div>
           <div class="tag-list">
             <span
+              data-test="techno-tag"
               class="tag"
               v-for="tag of tags"
               :key="tag.name"
@@ -65,7 +83,7 @@
             >{{ tag.name }}</span>
           </div>
         </div>
-        <p class="desc">{{ technoData.desc }}</p>
+        <p class="desc" data-test="desc">{{ technoData.desc }}</p>
       </div>
     </article>
   </transition>
