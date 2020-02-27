@@ -10,24 +10,21 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async validateUser(
-    username: string,
-    pass: string,
-  ): Promise<{ username: string }> {
-    const user = await this.usersService.findOne(username);
-    console.log(user);
+  async validateUser(email: string, pass: string): Promise<{ email: string }> {
+    const user = await this.usersService.findByEmail(email);
     if (user) {
+      console.log(user);
       const isSame = await compare(pass, user.password);
       if (isSame) {
-        return { username: user._id };
+        return { email: user._id };
       }
       throw new HttpException('Wrong password', 403);
     }
-    throw new HttpException('Wrong username', 403);
+    throw new HttpException('Wrong email', 403);
   }
 
   async login(user: any) {
-    const payload = { username: user.username, sub: user.userId };
+    const payload = { email: user.email, sub: user.userId };
     return {
       token: this.jwtService.sign(payload, { expiresIn: '60s' }),
       refreshToken: this.jwtService.sign(payload, { expiresIn: '24h' }),

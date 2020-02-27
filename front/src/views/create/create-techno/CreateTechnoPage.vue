@@ -37,6 +37,7 @@
         <SelectComponent :value="type" :options="['framework', 'language', 'test', 'software']" />
         <TextareaComponent v-model="desc" />
         <span :class="error ? 'error' : 'success'">{{ response }}</span>
+        <br />
         <ButtonComponent
           :loading="loading"
           type="submit"
@@ -56,6 +57,7 @@ import ButtonComponent from '@/shared/button/ButtonComponent.vue';
 import TextareaComponent from '@/shared/text-area/TextareaComponent.vue';
 import SelectComponent from '@/shared/select/SelectComponent.vue';
 import { POST_TECHNO } from '@/store/actions';
+import handleError from '@/utils/handleError';
 
 const defaultData = {
   file: null as File | null,
@@ -148,7 +150,7 @@ export default Vue.component('CreateTechnoPage', {
         .catch((err) => {
           this.loading = false;
           this.error = true;
-          this.response = err.message;
+          this.response = handleError(err);
         });
     },
   },
