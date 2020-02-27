@@ -5,11 +5,14 @@ import {
   Body,
   UseGuards,
   UseFilters,
+  UseInterceptors,
+  ClassSerializerInterceptor,
 } from '@nestjs/common';
 import { CreateTagDto } from './dto/create-tag.dto';
 import { TagsService } from './tags.service';
 import { AuthGuard } from '@nestjs/passport';
 import { MongoExceptionFilter } from 'src/utils/mongo-exception.filter';
+import { TagDto } from './dto/tag.dto';
 
 @Controller('tags')
 export class TagsController {
@@ -17,8 +20,10 @@ export class TagsController {
 
   @Get()
   @UseFilters(MongoExceptionFilter)
-  getTags() {
-    return this.tagsService.findAll();
+  @UseInterceptors(ClassSerializerInterceptor)
+  async getTags(): Promise<TagDto[]> {
+    const tags = await this.tagsService.findAll();
+    return tags.map(tag => new TagDto(tag));
   }
 
   @UseGuards(AuthGuard('jwt'))

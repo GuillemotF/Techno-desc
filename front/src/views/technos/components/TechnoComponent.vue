@@ -178,8 +178,8 @@ export default Vue.component('TechnoComponent', {
       this.loading = true;
       this.$store
         .dispatch(PATCH_TECHNO, {
-          title,
           id,
+          title,
           desc,
           type,
           img: file,

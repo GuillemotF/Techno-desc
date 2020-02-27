@@ -2,7 +2,7 @@ import { IsNotEmpty } from 'class-validator';
 
 export class CreateTagDto {
   @IsNotEmpty()
-  readonly id: string;
+  readonly name: string;
   @IsNotEmpty()
   readonly color: string;
 }

@@ -112,15 +112,16 @@ export async function patchTechno(
   const formData = new FormData();
   formData.set('title', title);
   formData.set('desc', desc);
-  formData.set('id', id);
   formData.set('type', type);
   tags.forEach((tag) => {
     formData.append('tags[]', tag);
   });
-  formData.append('img', img);
+  if (img) {
+    formData.append('img', img);
+  }
   const response = await fetchApi({
     method: 'patch',
-    url: '/technos',
+    url: `/technos/${id}`,
     data: formData,
     token,
   }).catch((err) => {
