@@ -11,7 +11,7 @@ import { RefreshJwtStrategy } from './refreshJwt.strategy';
 @Module({
   imports: [
     UsersModule,
-    PassportModule.register({ defaultStrategy: 'jwt' }),
+    PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
     }),

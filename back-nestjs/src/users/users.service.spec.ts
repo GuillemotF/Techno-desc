@@ -9,15 +9,8 @@ describe('UsersService', () => {
     const mockRepository = {
       findById() {
         return {
-          username: 'mockedUsername',
+          email: 'mockedEmail',
           password: 'mockedPassword',
-
-          // exec: () => {
-          //   return {
-          //     username: 'mockedUsername',
-          //     password: 'mockedPassword',
-          //   };
-          // },
         };
       },
     };
@@ -36,11 +29,11 @@ describe('UsersService', () => {
   describe('findOne', () => {
     it('should return user object', async () => {
       const expectedResult = {
-        username: 'mockedUsername',
+        email: 'mockedEmail',
         password: 'mockedPassword',
       };
 
-      const receivedResult = await usersService.findOne('testUsername');
+      const receivedResult = await usersService.findByEmail('testEmail');
       expect(receivedResult).toStrictEqual(expectedResult);
     });
   });

@@ -26,28 +26,13 @@
 <script lang="ts">
 import Vue from 'vue';
 import { POST_TAG } from '@/store/actions';
+import handleError from '../../../utils/handleError';
 
 export default Vue.component('CreateTagPage', {
   data() {
     return {
       name: '',
       color: '#F44336',
-      colorPalette: [
-        '#F44336',
-        '#E91E63',
-        '#9C27B0',
-        '#673AB7',
-        '#3F51B5',
-        '#2196F3',
-        '#03A9F4',
-        '#00BCD4',
-        '#009688',
-        '#4CAF50',
-        '#8BC34A',
-        '#CDDC39',
-        '#FFEB3B',
-        '#FFC107',
-      ],
       loading: false,
     };
   },
@@ -65,7 +50,7 @@ export default Vue.component('CreateTagPage', {
         .catch((err) => {
           this.$data.loading = false;
           this.$data.error = true;
-          this.$data.response = err.message;
+          this.$data.response = handleError(err);
         });
     },
   },

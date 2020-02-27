@@ -85,6 +85,7 @@ button.submit:disabled {
 
 .error {
   color: red;
+  white-space: pre-wrap;
 }
 .success {
   color: rgb(0, 189, 0);

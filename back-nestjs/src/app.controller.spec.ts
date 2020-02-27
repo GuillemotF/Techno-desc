@@ -28,7 +28,7 @@ describe('AppController', () => {
       jest.spyOn(authService, 'login').mockResolvedValue(expectedResult);
 
       const receivedResult = await appController.login({
-        user: { username: 'testUsername', password: 'testPassword' },
+        user: { email: 'testEmail', password: 'testPassword' },
       });
       expect(receivedResult).toBe(expectedResult);
     });
@@ -42,7 +42,7 @@ describe('AppController', () => {
       jest.spyOn(authService, 'login').mockResolvedValue(expectedResult);
 
       const receivedResult = await appController.refreshToken({
-        user: { username: 'testUsername', password: 'testPassword' },
+        user: { email: 'testEmail', password: 'testPassword' },
       });
       expect(receivedResult).toBe(expectedResult);
     });

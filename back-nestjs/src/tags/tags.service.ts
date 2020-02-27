@@ -10,14 +10,16 @@ export class TagsService {
 
   async create(createTagDto: CreateTagDto): Promise<Tag> {
     const createdTag = new this.tagModel({
-      _id: createTagDto.id,
+      _id: createTagDto.name,
       ...createTagDto,
     });
     return createdTag.save();
   }
-
   async findAll(): Promise<Tag[]> {
-    return this.tagModel.find().exec();
+    return this.tagModel
+      .find()
+      .lean()
+      .exec();
   }
   async checkIfTagsExist(tagNames: string[]): Promise<void> {
     const tags = await this.tagModel
