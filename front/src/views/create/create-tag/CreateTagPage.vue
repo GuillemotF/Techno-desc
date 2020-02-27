@@ -5,30 +5,32 @@
       <label>Nom</label>
       <input class="text-input" required v-model="name" type="text" />
       <label>Couleur</label>
-      <input type="color" required v-model="color" />
+      <verte
+        v-model="color"
+        picker="wheel"
+        model="hex"
+        menuPosition="center"
+        :showHistory="false"
+        :enableAlpha="false"
+      />
       <span :class="$data.error ? 'error' : 'success'">{{ $data.response }}</span>
       <button v-if="loading" class="submit" disabled type="submit">
         <font-awesome-icon icon="spinner" spin />
       </button>
-      <button
-        :disabled="
-            !name ||
-              !color
-          "
-        v-else
-        class="submit"
-        type="submit"
-      >Submit</button>
+      <button :disabled="!name || !color" v-else class="submit" type="submit">Créer le tag</button>
     </form>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import Verte from 'verte';
+import 'verte/dist/verte.css';
 import { POST_TAG } from '@/store/actions';
 import handleError from '../../../utils/handleError';
 
 export default Vue.component('CreateTagPage', {
+  components: { Verte },
   data() {
     return {
       name: '',
@@ -36,6 +38,7 @@ export default Vue.component('CreateTagPage', {
       loading: false,
     };
   },
+
   methods: {
     submit() {
       const { name, color } = this;
@@ -57,5 +60,4 @@ export default Vue.component('CreateTagPage', {
 });
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

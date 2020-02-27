@@ -140,7 +140,7 @@ html body {
   top: 0;
   width: 100%;
   background-color: #273236;
-  box-shadow: 0 5px 10px 2px black;
+  box-shadow: 0 2px 5px 2px black;
   border-bottom: 1px solid #30cbff33;
   z-index: 100;
 }

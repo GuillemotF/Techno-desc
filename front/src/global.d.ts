@@ -15,3 +15,6 @@ declare namespace App {
     [tagName: string]: { name: string; color: string };
   }
 }
+
+// verte color-picker library has no @types
+declare module 'verte';

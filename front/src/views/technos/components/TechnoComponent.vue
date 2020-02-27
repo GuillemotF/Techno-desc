@@ -41,10 +41,11 @@
               v-for="tag of allTags"
               :key="tag.name"
               v-bind:style="{
-              'border-color': tagNames.includes(tag.name) ? tag.color : 'transparent',
-              color: tag.color,
-            }"
-            >{{ tag.name }}</span>
+                'border-color': tagNames.includes(tag.name) ? tag.color : 'transparent',
+                color: tag.color,
+              }"
+              >{{ tag.name }}</span
+            >
           </div>
         </div>
         <SelectComponent v-model="type" :options="['framework', 'language', 'test', 'software']" />
@@ -77,10 +78,11 @@
               v-for="tag of tags"
               :key="tag.name"
               v-bind:style="{
-              'border-color': tag.color,
-              color: tag.color,
-            }"
-            >{{ tag.name }}</span>
+                'border-color': tag.color,
+                color: tag.color,
+              }"
+              >{{ tag.name }}</span
+            >
           </div>
         </div>
         <p class="desc" data-test="desc">{{ technoData.desc }}</p>
@@ -153,15 +155,7 @@ export default Vue.component('TechnoComponent', {
       this.editMode = !this.editMode;
       this.success = false;
     },
-    handleFileChange({
-      imgUrl,
-      imgName,
-      file,
-    }: {
-      imgUrl: string;
-      imgName: string;
-      file: File;
-    }) {
+    handleFileChange({ imgUrl, imgName, file }: { imgUrl: string; imgName: string; file: File }) {
       this.file = file;
       this.imgUrl = imgUrl || this.techno.imgUrl;
       this.imgFileStatus = imgName || '';
@@ -187,9 +181,7 @@ export default Vue.component('TechnoComponent', {
         })
         .then((res) => {
           this.technoData = res;
-          this.tags = res.tags.map(
-            (tag: string) => this.$store.state.tags[tag],
-          );
+          this.tags = res.tags.map((tag: string) => this.$store.state.tags[tag]);
           this.editMode = false;
           this.loading = false;
           this.error = false;

@@ -118,10 +118,10 @@ div.items-container {
 
 /* transition */
 .list-fade-enter-active {
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
 }
 .list-fade-leave-active {
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
 }
 .list-fade-enter,
 .list-fade-leave-to {

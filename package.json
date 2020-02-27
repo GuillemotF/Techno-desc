@@ -10,6 +10,7 @@
     "build:front": "npm build --prefix ./front",
     "build:back": "npm build --prefix ./back-nestjs",
     "test:front": "npm run test:unit --prefix ./front",
+    "test:back": "npm run test --prefix ./back-nestjs",
     "lint": "npm run lint --prefix ./front"
   },
   "author": "François Guillemot",
